@@ -1,2 +1,2 @@
 # GameCapstoneProject
-Program gamr turn base sederhana
+Program game turn base sederhana
