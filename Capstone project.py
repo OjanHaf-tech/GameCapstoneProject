@@ -24,7 +24,7 @@ def liatkarakter(karakter):
         print("Tidak ada karakter yang tersedia.\n")
         return
     tabel = [[i+1, b["nama"], b["HP"], b["ATK"], b["Afiliasi"]] for i, b in enumerate(karakter)]
-    print(tabulate(tabel, headers=["Index", "Nama", "HP", "ATK", "Afiliasi"], tablefmt="fancy_grid"))
+    print(tabulate(tabel, headers=["No", "Nama", "HP", "ATK", "Afiliasi"], tablefmt="fancy_grid"))
 # Fungsi untuk menambah karakter
 def tambahkarakter(karakter):
     while True:
@@ -47,19 +47,19 @@ def hapuskarakter(karakter):
         print("Tidak ada karakter untuk dihapus.\n")
         return
     liatkarakter(karakter)
-    idx = inputHarusAngka("Masukkan index karakter yang ingin dihapus: ")-1
+    idx = inputHarusAngka("Masukkan No karakter yang ingin dihapus: ")-1
     if 0 <= idx < len(karakter):
         hapus = karakter.pop(idx)
         print(f"Karakter {hapus['nama']} berhasil dihapus.\n")
     else:
-        print("Index tidak valid.\n")
+        print("No tidak ada, silahkan coba lagi.\n")
 # Fungsi untuk mengedit karakter
 def editkarakter(karakter):
     if not karakter:
         print("Tidak ada karakter untuk diedit.\n")
         return
     liatkarakter(karakter)
-    idx = inputHarusAngka("Masukkan index karakter yang ingin diedit: ")-1
+    idx = inputHarusAngka("Masukkan No karakter yang ingin diedit: ")-1
     if 0 <= idx < len(karakter):
         nama = inputHarusString("Masukkan nama baru: ")
         afiliasi = inputHarusString("Masukkan afiliasi baru: ")
@@ -74,7 +74,7 @@ def editkarakter(karakter):
                 return karakter
             print("HP+ATK harus = 800, dan masing2 200-600.\n")
     else:
-        print("Index tidak valid.\n")
+        print("No tidak ada, silahkan coba lagi.\n")
     return karakter
 
 # Fungsi-fungsi yang akan dimasukkan atau dipanggil sub menu Item
@@ -84,7 +84,7 @@ def liatitem(item):
         print("Tidak ada item yang tersedia.\n")
         return
     tabel = [[i+1, b["nama"], b["rarity"], b["kegunaan"]] for i, b in enumerate(item)]
-    print(tabulate(tabel, headers=["Index", "Nama", "Rarity", "Kegunaan"], tablefmt="fancy_grid"))
+    print(tabulate(tabel, headers=["No", "Nama", "Rarity", "Kegunaan"], tablefmt="fancy_grid"))
 # Fungsi saat menambah item
 def tambahitem(item):
     nama = inputHarusString("Masukkan nama item: ")
@@ -106,12 +106,12 @@ def hapusitem(item):
         print("Tidak ada item untuk dihapus.\n")
         return
     liatitem(item)
-    idx = inputHarusAngka("Masukkan index item yang ingin dihapus: ")-1
+    idx = inputHarusAngka("Masukkan No item yang ingin dihapus: ")-1
     if 0 <= idx < len(item):
         hapus = item.pop(idx)
         print(f"Item {hapus['nama']} berhasil dihapus.\n")
     else:
-        print("Index tidak valid.\n")
+        print("No tidak ada, silahkan coba lagi.\n")
 # Fungsi untuk menentukan efek dan rarity item
 def efekitem(item, player):
     if item["rarity"] == "common": 
@@ -149,7 +149,7 @@ def pve(karakter, item):
     liatkarakter(karakter)
     idx = inputHarusAngka("Pilih karakter: ")-1
     if not (0 <= idx < len(karakter)):
-        print("Index tidak valid.\n")
+        print("No tidak ada, silahkan coba lagi.\n")
         return
     player = karakter[idx].copy()
     bos = pilihbos()
@@ -160,7 +160,7 @@ def pve(karakter, item):
         if giliran == 1:
             print(f"\n--- Giliran {player['nama']} ---")
             liatitem(item)
-            idxi = inputHarusAngka("Pilih item (index): ")-1
+            idxi = inputHarusAngka("Pilih item (No): ")-1
             if 0 <= idxi < len(item):
                 chosen_item = item[idxi]
                 if chosen_item["kegunaan"] == "HP":
@@ -192,14 +192,14 @@ def pvp(karakter, item):
     liatkarakter(karakter)
     idx1 = inputHarusAngka("Pilih karakter Player 1: ") - 1
     if not (0 <= idx1 < len(karakter)):
-        print("Index tidak valid.\n")
+        print("No tidak ada, silahkan coba lagi.\n")
         return
     player1 = karakter[idx1].copy()
 
     while True:
         idx2 = inputHarusAngka("Pilih karakter Player 2: ") - 1
         if not (0 <= idx2 < len(karakter)):
-            print("Index tidak valid.\n")
+            print("No tidak ada, silahkan coba lagi.\n")
         elif idx2 == idx1:
             print("Karakter ini sudah dipilih Player 1, silahkan pilih karakter lain!\n")
         else:
@@ -213,7 +213,7 @@ def pvp(karakter, item):
         if giliran == 1:
             print(f"\n--- Giliran {player1['nama']} ---")
             liatitem(item)
-            idxi = inputHarusAngka("Pilih item (index): ")-1
+            idxi = inputHarusAngka("Pilih item (No): ")-1
             if 0 <= idxi < len(item):
                 chosen_item = item[idxi]
                 if chosen_item["kegunaan"] == "HP":
@@ -226,7 +226,7 @@ def pvp(karakter, item):
         else:
             print(f"\n--- Giliran {player2['nama']} ---")
             liatitem(item)
-            idxi = inputHarusAngka("Pilih item (index): ")-1
+            idxi = inputHarusAngka("Pilih item (No): ")-1
             if 0 <= idxi < len(item):
                 chosen_item = item[idxi]
                 if chosen_item["kegunaan"] == "HP":
@@ -316,5 +316,3 @@ def main():
 
 # Jalankan game bisa langsung panggil aja fungsi main yang sudah dibuat
 main()  
-
-
