@@ -1,6 +1,7 @@
 # GameCapstoneProject
 # Jans Game
 
+---
 ## Deskripsi/Overview Program
 Program game turn base sederhana
 
