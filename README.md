@@ -3,7 +3,7 @@
 
 ---
 ## Deskripsi/Overview Program
-Program game turn base sederhana
+Program game turn base sederhana berbasis Python yang dapat dimainkan melalui terminal (text-based). Pada program ini terdapat fitur CRUD pada menu character dan CRD pada menu Item. 
 
 ---
 ## User
