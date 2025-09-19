@@ -41,3 +41,4 @@ Game ini memiliki beberapa limitasi dan beberapa hal yang bisa dikembangkan lebi
   - File bersifat sementara, bisa dikembangkan dengan menghubungkan ke database
   - Game masih berjalan text based, bisa dikembangkan dengan GUI atau design lainnya
   - Fitur Game masih bisa dikembangkan lagi seperti, ketika kalah Karakter dihapus otomatis, inventory terbatas, durability item dan sebagainya
+  - Fitur edit bisa dikembangkan untuk bisa memilih hanya 1 kolom saja yang mau diubah
