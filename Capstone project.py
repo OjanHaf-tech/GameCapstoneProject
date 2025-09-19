@@ -301,7 +301,7 @@ def main():
     {"nama": "Dona", "rarity": "common", "kegunaan": "HP"}
     ]
     while True:
-        print("\nWelcome to The Game")
+        print("\nJans Game")
         print("1. Karakter\n2. Item\n3. Play\n4. Exit")
         pilih = inputHarusAngka("Pilih menu: ")
         if pilih == 1: 
