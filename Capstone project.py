@@ -163,11 +163,11 @@ def pve(karakter, item):
             idxi = inputHarusAngka("Pilih item (index): ")-1
             if 0 <= idxi < len(item):
                 efekitem(item[idxi], player)
-            bos["HP"] -= player["ATK"]
+            bos["HP"] = max(0, bos["HP"] - player["ATK"])
             print(f"{player['nama']} menyerang {bos['nama']} -{player['ATK']} HP")
         else:
             print(f"\n--- Giliran {bos['nama']} ---")
-            player["HP"] -= bos["ATK"]
+            player["HP"] = max(0, player["HP"] - bos["ATK"])
             print(f"{bos['nama']} menyerang {player['nama']} -{bos['ATK']} HP")
 
         print(f"Status: {player['nama']} HP={player['HP']} | {bos['nama']} HP={bos['HP']}")
@@ -211,7 +211,7 @@ def pvp(karakter, item):
             idxi = inputHarusAngka("Pilih item (index): ")-1
             if 0 <= idxi < len(item):
                 efekitem(item[idxi], player1)
-            player2["HP"] -= player1["ATK"]
+            player2["HP"] = max(0, player2["HP"] - player1["ATK"])
             print(f"{player1['nama']} menyerang {player2['nama']} -{player1['ATK']} HP")
         else:
             print(f"\n--- Giliran {player2['nama']} ---")
@@ -219,7 +219,7 @@ def pvp(karakter, item):
             idxi = inputHarusAngka("Pilih item (index): ")-1
             if 0 <= idxi < len(item):
                 efekitem(item[idxi], player2)
-            player1["HP"] -= player2["ATK"]
+            player1["HP"] = max(0, player1["HP"] - player2["ATK"])
             print(f"{player2['nama']} menyerang {player1['nama']} -{player2['ATK']} HP")
 
         print(f"HP {player1['nama']}: {player1['HP']} | HP {player2['nama']}: {player2['HP']}")
@@ -301,3 +301,4 @@ def main():
 
 # Jalankan game bisa langsung panggil aja fungsi main yang sudah dibuat
 main()  
+
