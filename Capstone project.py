@@ -217,10 +217,10 @@ def pvp(karakter, item):
             if 0 <= idxi < len(item):
                 chosen_item = item[idxi]
                 if chosen_item["kegunaan"] == "HP":
-                    efekitem(chosen_item, player)
+                    efekitem(chosen_item, player1)
                     continue  
                 else:
-                    efekitem(chosen_item, player)
+                    efekitem(chosen_item, player1)
             player2["HP"] = max(0, player2["HP"] - player1["ATK"])
             print(f"{player1['nama']} menyerang {player2['nama']} -{player1['ATK']} HP")
         else:
@@ -230,10 +230,10 @@ def pvp(karakter, item):
             if 0 <= idxi < len(item):
                 chosen_item = item[idxi]
                 if chosen_item["kegunaan"] == "HP":
-                    efekitem(chosen_item, player)
+                    efekitem(chosen_item, player2)
                     continue  
                 else:
-                    efekitem(chosen_item, player)
+                    efekitem(chosen_item, player2)
             player1["HP"] = max(0, player1["HP"] - player2["ATK"])
             print(f"{player2['nama']} menyerang {player1['nama']} -{player2['ATK']} HP")
 
@@ -316,4 +316,5 @@ def main():
 
 # Jalankan game bisa langsung panggil aja fungsi main yang sudah dibuat
 main()  
+
 
