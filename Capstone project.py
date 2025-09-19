@@ -302,7 +302,7 @@ def main():
     ]
     while True:
         print("\nJans Game")
-        print("1. Karakter\n2. Item\n3. Play\n4. Exit")
+        print("1. Character\n2. Item\n3. Play\n4. Exit")
         pilih = inputHarusAngka("Pilih menu: ")
         if pilih == 1: 
             menu_karakter(karakter)
@@ -316,3 +316,4 @@ def main():
 
 # Jalankan game bisa langsung panggil aja fungsi main yang sudah dibuat
 main()  
+
