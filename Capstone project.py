@@ -23,8 +23,8 @@ def liatkarakter(karakter):
     if not karakter:
         print("Tidak ada karakter yang tersedia.\n")
         return
-    tabel = [[i+1, b["nama"], b["HP"], b["ATK"]] for i, b in enumerate(karakter)]
-    print(tabulate(tabel, headers=["Index", "Nama", "HP", "ATK"], tablefmt="grid"))
+    tabel = [[i+1, b["nama"], b["HP"], b["ATK"], b["Afiliasi"]] for i, b in enumerate(karakter)]
+    print(tabulate(tabel, headers=["Index", "Nama", "HP", "ATK", "Afiliasi"], tablefmt="fancy_grid"))
 # Fungsi untuk menambah karakter
 def tambahkarakter(karakter):
     while True:
@@ -32,11 +32,12 @@ def tambahkarakter(karakter):
         if any(b["nama"].lower() == nama.lower() for b in karakter):
             print("Karakter sudah ada!\n")
             continue
+        afiliasi = inputHarusString("Masukkan afiliasi karakter: ")
         while True:
             hp = inputHarusAngka("Masukkan HP (200-600): ")
             atk = inputHarusAngka("Masukkan ATK (200-600): ")
-            if 200 <= hp <= 600 and 200 <= atk <= 600 and hp + atk == 800: # jangkauan sampai 600 karena mengambil nilai tengah
-                karakter.append({"nama": nama, "HP": hp, "ATK": atk})
+            if 200 <= hp <= 600 and 200 <= atk <= 600 and hp + atk == 800: # nilai bisa sampai 600 karena mengambil nilai tengah
+                karakter.append({"nama": nama, "HP": hp, "ATK": atk, "Afiliasi": afiliasi})
                 print(f"Karakter {nama} berhasil ditambahkan!\n")
                 return
             print("HP + ATK harus = 800, dan masing-masing 200-600.\n")
@@ -61,16 +62,20 @@ def editkarakter(karakter):
     idx = inputHarusAngka("Masukkan index karakter yang ingin diedit: ")-1
     if 0 <= idx < len(karakter):
         nama = inputHarusString("Masukkan nama baru: ")
+        afiliasi = inputHarusString("Masukkan afiliasi baru: ")
         while True:
             hp = inputHarusAngka("Masukkan HP baru (200-600): ")
             atk = inputHarusAngka("Masukkan ATK baru (200-600): ")
-            if 200 <= hp <= 600 and 200 <= atk <= 600 and hp + atk == 800:
-                karakter[idx].update({"nama": nama, "HP": hp, "ATK": atk})
-                print("Karakter berhasil diedit!\n")
-                return
-            print("HP + ATK harus = 800, dan masing-masing 200-600.\n")
+            if 200 <= hp <= 600 and 200 <= atk <= 600 and hp+atk == 800:
+                karakter[idx]["nama"] = nama
+                karakter[idx]["afiliasi"] = afiliasi
+                karakter[idx]["HP"], karakter[idx]["ATK"] = hp, atk
+                print(f"Karakter berhasil diedit!\n")
+                return karakter
+            print("HP+ATK harus = 800, dan masing2 200-600.\n")
     else:
         print("Index tidak valid.\n")
+    return karakter
 
 # Fungsi-fungsi yang akan dimasukkan atau dipanggil sub menu Item
 # Fungsi saat melihat item
@@ -79,7 +84,7 @@ def liatitem(item):
         print("Tidak ada item yang tersedia.\n")
         return
     tabel = [[i+1, b["nama"], b["rarity"], b["kegunaan"]] for i, b in enumerate(item)]
-    print(tabulate(tabel, headers=["Index", "Nama", "Rarity", "Kegunaan"], tablefmt="grid"))
+    print(tabulate(tabel, headers=["Index", "Nama", "Rarity", "Kegunaan"], tablefmt="fancy_grid"))
 # Fungsi saat menambah item
 def tambahitem(item):
     nama = inputHarusString("Masukkan nama item: ")
@@ -272,8 +277,14 @@ def menu_play(karakter, item):
 
 # Fungsi Main menu masukan fungsi fungsi sub menu yang telah dibuat
 def main():
-    karakter = [] 
-    item = []
+    karakter = [{"nama": "Mona", "HP": 300, "ATK": 500, "Afiliasi": "Geng Kapak"},
+    {"nama": "Kai", "HP": 400, "ATK": 400, "Afiliasi": "Geng cucur"},
+    {"nama": "Calon", "HP": 600, "ATK": 200, "Afiliasi": "Kelompok Mooka lir"}
+    ] 
+    item = [{"nama": "Sekop", "rarity": "common", "kegunaan": "ATK"},
+    {"nama": "Daun", "rarity": "common", "kegunaan": "HP"},
+    {"nama": "Dona", "rarity": "common", "kegunaan": "HP"}
+    ]
     while True:
         print("\nWelcome to The Game")
         print("1. Karakter\n2. Item\n3. Play\n4. Exit")
