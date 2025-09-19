@@ -20,5 +20,12 @@ Program game turn base sederhana
     - Menambah karakter baru
     - mengedit karakter yang ada di tabel
     - Menghapus karakter
+### Fitur Item:
+    - Melihat Item yang sudah ada
+    - Menambah Item baru
+    - Menghapus Item
+### Fitur Play:
+    - Play melawan Bos dengan kesusahan easy/hard
+    - Play melawan teman/PVP
 ---
 ## Cara penggunaan aplikasi
