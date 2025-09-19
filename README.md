@@ -12,10 +12,6 @@ Program game turn base sederhana berbasis Python yang dapat dimainkan melalui te
   - Memainkan melawan environment/bos atau bisa melawan sesama player
 
 ---
-## Tujuan
-Game ini bertujuan
-
----
 ## Fitur yang tersedia
 ### Fitur Character:
     - Melihat Karakter yang sudah ada
@@ -31,3 +27,17 @@ Game ini bertujuan
     - Play melawan teman/PVP
 ---
 ## Cara penggunaan aplikasi
+Untuk menggunakan aplikasi ini pertama:
+  - memerlukan Python dan Visual Studio Code untuk dapat dijalankan
+  - Download File Python
+  - Run File di dalam Visual Studio Code
+  - Pilih menu sesuai
+  - Aplikasi akan berjalan sampai user memilih keluar (Menu nomor 4)
+
+---
+## Limitation
+Game ini memiliki beberapa limitasi dan beberapa hal yang bisa dikembangkan lebih lanjut:
+  - Baru bisa dijalankan di Python
+  - File bersifat sementara, bisa dikembangkan dengan menghubungkan ke database
+  - Game masih berjalan text based, bisa dikembangkan dengan GUI atau design lainnya
+  - Fitur Game masih bisa dikembangkan lagi seperti, ketika kalah Karakter dihapus otomatis, inventory terbatas, durability item dan sebagainya
