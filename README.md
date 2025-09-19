@@ -7,8 +7,9 @@ Program game turn base sederhana
 
 ---
 ## User
-**Player**: - Menambah karakter dan item sesuai yang diinginkan
-            - Memainkan melawan environment/bos atau bisa melawan sesama player
+**Player**:
+  - Menambah karakter dan item sesuai yang diinginkan
+  - Memainkan melawan environment/bos atau bisa melawan sesama player
 
 ---
 ## Tujuan
